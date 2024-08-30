@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package scanner.tokens;
+
+package scanner;
 
 /**
  *
- * @author loren
+ * @author Clon5675 
+
  */
 public enum tokens {
     RESERVADAS,
