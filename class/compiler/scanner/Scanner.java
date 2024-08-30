@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecafScanner {
+public class Scanner {
     private String input;
     private int position;
     private int line;
     private int column;
     
-    public DecafScanner(String input) {
+    public Scanner(String input) {
         this.input = input;
         this.position = 0;
         this.line = 1;
@@ -142,6 +142,12 @@ public class DecafScanner {
             case '-': return new Token(TokenType.MINUS, "-", line, column);
             case '*': return new Token(TokenType.MULTIPLY, "*", line, column);
             case '/': return new Token(TokenType.DIVIDE, "/", line, column);
+            case '(': return new Token(TokenType.LEFT_PAREN, "(", line, column);
+            case ')': return new Token(TokenType.RIGHT_PAREN, ")", line, column);
+            case '{': return new Token(TokenType.LEFT_BRACE, "{", line, column);
+            case '}': return new Token(TokenType.RIGHT_BRACE, "}", line, column);
+            case ';': return new Token(TokenType.SEMICOLON, ";", line, column);
+            case ',': return new Token(TokenType.COMMA, ",", line, column);
             // Agregar más operadores aquí
             default: return new Token(TokenType.ERROR, "Illegal character: " + currentChar, line, column);
         }
@@ -173,14 +179,15 @@ public class DecafScanner {
     }
 
     public enum TokenType {
-        IDENTIFIER, KEYWORD, NUMBER, STRING, PLUS, MINUS, MULTIPLY, DIVIDE, ERROR
+        IDENTIFIER, KEYWORD, NUMBER, STRING, PLUS, MINUS, MULTIPLY, DIVIDE, 
+        LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE, SEMICOLON, COMMA, ERROR
         // Agregar más tipos de tokens aquí
     }
 
     // Método principal para prueba
     public static void main(String[] args) {
         String code = "int main() { // comentario\n return 42; }";
-        DecafScanner scanner = new DecafScanner(code);
+        Scanner scanner = new Scanner(code);
         List<Token> tokens = scanner.scan();
         for (Token token : tokens) {
             System.out.println(token);
