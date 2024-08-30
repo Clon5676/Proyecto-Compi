@@ -7,7 +7,7 @@ package scanner;
 
 /**
  *
- * @author Clon5675
+ * @author Clon5675 
  */
 public enum tokens {
     RESERVADAS,
