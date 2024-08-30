@@ -4,7 +4,7 @@
 PROJECT = Compiler
 
 # Directorios y archivos
-SRC_DIR = "C:/Users/Javier\ C/OneDrive\ -\ Universidad\ Francisco\ Marroquin/Clases/Cloud/Proyecto-Compi/class/compiler/scanner"
+SRC_DIR = "C:/Users/Javier\ C/OneDrive\ -\ Universidad\ Francisco Marroquin/Clases/Cloud/Proyecto-Compi/class/compiler/scanner"
 BIN_DIR = .
 
 # Archivo fuente específico a compilar
