@@ -1,28 +1,35 @@
-# Definir variables
-JAVAC = javac
-JAVA = java
-CLASSPATH = grupo06:.
+# Makefile para compilar el proyecto del compilador
 
-# Fuentes y archivos compilados
-SRC_DIR = compiler
-SRC_FILES = $(wildcard $(SRC_DIR)/*.java)
-CLASS_FILES = $(SRC_FILES:.java=.class)
+# Nombre del proyecto
+PROJECT = Compiler
 
-# Regla para compilar todo
-all: $(CLASS_FILES)
+# Directorios
+SRC_DIR = src    #Cambiamos esto y ya tenemos para que funcione el codigo
+BIN_DIR = .
 
-# Regla genérica para compilar archivos .java a .class
-%.class: %.java
-	$(JAVAC) -cp $(CLASSPATH) $<
+# Clases de salida
+CLASSES = $(BIN_DIR)/$(PROJECT).class
 
-# Regla para ejecutar el compilador
-run: all
-	@echo "Ejecutando el compilador..."
-	cd $(SRC_DIR) && $(JAVA) -cp $(CLASSPATH) Compiler $(ARGS)
+# Lista de archivos fuente en src/
+SOURCES = $(wildcard $(SRC_DIR)/*.java)
 
-# Limpiar archivos compilados
+# Ruta completa para el compilador de Java (con comillas)
+JAVAC = "C:\Program Files\Java\jdk-17\bin\javac"
+JFLAGS = -d $(BIN_DIR)
+
+# Compilación por defecto
+all: $(CLASSES)
+
+# Regla para compilar el archivo de salida
+$(CLASSES): $(SOURCES)
+	$(JAVAC) $(JFLAGS) $(SOURCES)
+
+# Regla para limpiar archivos compilados
 clean:
-	@echo "Limpiando archivos compilados..."
-	rm -f $(SRC_DIR)/*.class
+	del /Q $(BIN_DIR)\*.class
 
-.PHONY: all clean run
+# Documentación del uso del makefile
+help:
+	@echo "Uso del Makefile:"
+	@echo "  make        - Compila todos los archivos fuente .java"
+	@echo "  make clean  - Elimina todos los archivos .class generados"
