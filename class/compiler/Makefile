@@ -4,11 +4,11 @@
 PROJECT = Compiler
 
 # Directorios y archivos
-SRC_DIR = "C:/Users/Javier\ C/OneDrive\ -\ Universidad\ Francisco\ Marroquin/Clases/Cloud/Proyecto-Compi/class/compiler/scanner"
+SRC_DIR = "C:/Users/Javier\ C/OneDrive\ -\ Universidad\ Francisco\ Marroquin/Clases/Cloud/Proyecto-Compi/class/compiler/scanner/Prueba2"
 BIN_DIR = .
 
 # Archivo fuente específico a compilar
-SOURCE = "$(SRC_DIR)\lexer.java"
+SOURCE = "$(SRC_DIR)\Lexer.java"
 
 # Ruta completa para el compilador de Java (con comillas)
 JAVAC = "C:\Program Files\Java\jdk-17\bin\javac"
